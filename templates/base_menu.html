@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления - Магазин товаров</title>
+    <style>
+        /* Общие стили страниц */
+        * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+        body { margin: 0; display: flex; background-color: #f8f9fa; min-height: 100vh; }
+
+        /* Боковое меню */
+        .sidebar { width: 240px; background-color: #1e2229; color: #fff; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh; flex-shrink: 0; }
+        .sidebar-brand { font-size: 1.25rem; font-weight: bold; margin-bottom: 20px; color: #fff; }
+        .nav-links { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+        .nav-item { margin-bottom: 8px; }
+        .nav-link { display: block; padding: 10px 15px; color: #a0a5b0; text-decoration: none; border-radius: 6px; }
+        .nav-link:hover { background-color: #2a2f3a; color: #fff; }
+        .nav-link.active { background-color: #2f6bf2; color: #fff; font-weight: bold; }
+        .profile-box { background-color: #2a2f3a; padding: 12px; border-radius: 6px; font-size: 0.9rem; line-height: 1.5; }
+        .profile-sub { color: #a0a5b0; font-size: 0.8rem; display: block; margin-bottom: 5px; }
+
+        /* Контентная зона */
+        main { flex-grow: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; overflow-y: auto; height: 100vh; }
+        .container { width: 100%; max-width: 1040px; }
+        .page-header { text-align: center; margin-top: 10px; margin-bottom: 40px; }
+        .page-title { font-size: 2.75rem; font-weight: 400; margin-bottom: 10px; color: #212529; text-align: center; }
+        .page-subtitle { font-size: 1.15rem; color: #6c757d; margin: 0; text-align: center; }
+
+        /* Сетка для карточек товаров */
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; justify-content: center; margin-bottom: 40px; }
+        .card { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.01); display: flex; flex-direction: column; text-align: center; }
+        .card-header { background-color: #fff; border-bottom: 1px solid #dee2e6; padding: 15px; }
+        .card-header h4 { margin: 0; font-size: 1.25rem; font-weight: 400; color: #6c757d; }
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-price { font-size: 2.25rem; font-weight: bold; margin: 0 0 15px 0; color: #212529; }
+        .card-text { list-style: none; padding: 0; margin: 0 0 25px 0; color: #6c757d; font-size: 0.9rem; line-height: 1.6; text-align: left; }
+        .btn-buy { width: 100%; background: transparent; color: #2f6bf2; border: 1px solid #2f6bf2; padding: 10px 20px; font-size: 1rem; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .btn-buy:hover { background-color: #2f6bf2; color: #fff; }
+
+        /* Форма контактов */
+        .content-grid { display: flex; gap: 40px; text-align: left; width: 100%; }
+        .col-form { flex: 1; }
+        .col-text { flex: 1; }
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #6c757d; text-transform: uppercase; }
+        .form-control { width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1rem; }
+        .form-control:focus { outline: none; border-color: #2f6bf2; }
+        .input-group { display: flex; }
+        .input-group-text { background-color: #e9ecef; border: 1px solid #ced4da; border-right: none; padding: 10px 12px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; color: #6c757d; }
+        .input-group .form-control { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+    </style>
+</head>
+<body>
+
+
+    <header class="sidebar">
+        <div>
+            <div class="sidebar-brand">🏠 Меню</div>
+            <ul class="nav-links">
+                <li><a href="/" id="nav-main" class="nav-link">Главная</a></li>
+                <li><a href="/categories" id="nav-categories" class="nav-link">Категории</a></li>
+                <li><a href="/orders" id="nav-orders" class="nav-link">Заказы</a></li>
+                <li><a href="/contacts" id="nav-contacts" class="nav-link">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="profile-box"><span class="profile-sub">Профиль</span><span class="profile-sub">Выход</span><strong>👤 Пользователь ▾</strong></div>
+    </header>
+
+    <main>
+        <div class="container">
+            {{CONTENT}}
+        </div>
+    </main>
+
+</body>
+</html>
