@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <style>
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { margin: 0; display: flex; background-color: #f8f9fa; min-height: 100vh; }
+
+    /* БОКОВОЕ МЕНЮ (ХЕДЕР) */
+    .sidebar { width: 240px; background-color: #1e2229; color: #fff; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 100vh; flex-shrink: 0; }
+    .sidebar-brand { font-size: 1.25rem; font-weight: bold; margin-bottom: 20px; color: #fff; }
+    .nav-links { list-style: none; padding: 0; margin: 0; flex-grow: 1; }
+    .nav-item { margin-bottom: 8px; }
+    .nav-link { display: block; padding: 10px 15px; color: #a0a5b0; text-decoration: none; border-radius: 6px; }
+    .nav-link:hover { background-color: #2a2f3a; color: #fff; }
+    .nav-link.active { background-color: #2f6bf2; color: #fff; font-weight: bold; }
+    .profile-box { background-color: #2a2f3a; padding: 12px; border-radius: 6px; font-size: 0.9rem; line-height: 1.5; }
+    .profile-sub { color: #a0a5b0; font-size: 0.8rem; display: block; margin-bottom: 5px; }
+
+    /* ОСНОВНОЙ КОНТЕНТ (БОДИ) */
+    main { flex-grow: 1; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+    .container { width: 100%; max-width: 1100px; text-align: center; }
+    .page-header { text-align: center; margin-top: 20px; margin-bottom: 50px; }
+    .page-title { font-size: 2.75rem; font-weight: 400; margin-bottom: 10px; color: #212529; }
+    .page-subtitle { font-size: 1.15rem; color: #6c757d; margin: 0; }
+
+    /* СЕТКА С ТОВАРАМИ / КАТЕГОРИЯМИ */
+    .cards-grid { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
+    .card { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; width: 100%; max-width: 320px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.02); display: flex; flex-direction: column; }
+    .card-header { background-color: #fff; border-bottom: 1px solid #dee2e6; padding: 15px; text-align: center; }
+    .card-header h4 { margin: 0; font-size: 1.25rem; font-weight: 400; color: #6c757d; }
+    .card-body { padding: 25px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .card-price { font-size: 2.25rem; font-weight: bold; margin: 0 0 15px 0; color: #212529; }
+    .card-text { list-style: none; padding: 0; margin: 0 0 25px 0; color: #6c757d; font-size: 0.9rem; line-height: 1.6; text-align: left; }
+    .btn-buy { width: 100%; background: transparent; color: #2f6bf2; border: 1px solid #2f6bf2; padding: 10px 20px; font-size: 1rem; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-weight: bold; }
+    .btn-buy:hover { background-color: #2f6bf2; color: #fff; }
+
+    /* СТИЛИ ДЛЯ ФОРМЫ КОНТАКТОВ */
+    .content-grid { display: flex; gap: 40px; text-align: left; }
+    .col-form { flex: 1; }
+    .col-text { flex: 1; }
+    .form-group { margin-bottom: 20px; }
+    .form-label { display: block; margin-bottom: 8px; font-size: 0.85rem; font-weight: bold; color: #6c757d; text-transform: uppercase; }
+    .form-control { width: 100%; padding: 10px 12px; border: 1px solid #ced4da; border-radius: 6px; font-size: 1rem; }
+    .form-control:focus { outline: none; border-color: #2f6bf2; }
+    .input-group { display: flex; }
+    .input-group-text { background-color: #e9ecef; border: 1px solid #ced4da; border-right: none; padding: 10px 12px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; color: #6c757d; }
+    .input-group .form-control { border-top-left-radius: 0; border-bottom-left-radius: 0; }
+    .thumbnail-placeholder { height: 200px; background-color: #55595c; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+</style>
+
+    <meta charset="UTF-8">
+    <title>Главная - Магазин товаров</title>
+    <!-- Вставьте сюда блок <style> из пункта выше -->
+</head>
+<body>
+    <header class="sidebar">
+        <div>
+            <div class="sidebar-brand">🏠 Меню</div>
+            <ul class="nav-links">
+                <li><a href="/" class="nav-link active">Главная</a></li>
+                <li><a href="/categories" class="nav-link">Категории</a></li>
+                <li><a href="/orders" class="nav-link">Заказы</a></li>
+                <li><a href="/contacts" class="nav-link">Контакты</a></li>
+            </ul>
+        </div>
+        <div class="profile-box"><span class="profile-sub">Профиль</span><span class="profile-sub">Выход</span><strong>👤 Пользователь ▾</strong></div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Главная</h1>
+                <p class="page-subtitle">Вы находитесь на сайте, предназначенном для продажи товаров.</p>
+            </div>
+            <div class="cards-grid">
+                <!-- Карточка 1 -->
+                <div class="card">
+                    <div class="card-header"><h4>Товар 1</h4></div>
+                    <div class="card-body">
+                        <h2 class="card-price">$ 100</h2>
+                        <ul class="card-text"><li>10 users included, 2 GB of storage,</li><li>Email support, Help center access</li></ul>
+                        <button class="btn-buy">Купить</button>
+                    </div>
+                </div>
+                <!-- Карточка 2 -->
+                <div class="card">
+                    <div class="card-header"><h4>Товар 1</h4></div>
+                    <div class="card-body">
+                        <h2 class="card-price">$ 100</h2>
+                        <ul class="card-text"><li>10 users included, 2 GB of storage,</li><li>Email support, Help center access</li></ul>
+                        <button class="btn-buy">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
